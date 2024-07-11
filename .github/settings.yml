@@ -2,7 +2,7 @@ repository:
   name: settings
   description: A template repo for repo settings
   homepage: https://settings.irishlab.io/
-  private: false
+  private: true
   has_issues: true
   has_projects: false
   has_wiki: false
