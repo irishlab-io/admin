@@ -18,19 +18,6 @@ repository:
   enable_automated_security_fixes: true
   enable_vulnerability_alerts: true
 
-labels:
-  - name: bug
-    color: CC0000
-    description: An issue
-  - name: feature
-    color: '#336699'
-    description: An new fonctionality
-
-milestones:
-  - title: milestone-title
-    description: milestone-description
-    state: open
-
 collaborators:
   - username: irish1986
     permission: admin
@@ -40,6 +27,17 @@ teams:
     permission: admin
   - name: docs
     permission: push
+
+environments:
+  - name: prod
+    wait_timer: 0
+    prevent_self_review: true
+    reviewers:
+      - type: irish1986
+        id: 13018674
+    deployment_branch_policy:
+      protected_branches: true
+      custom_branch_policies: false
 
 branches:
   - name: main
