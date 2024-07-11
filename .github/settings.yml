@@ -15,22 +15,14 @@ repository:
   enable_automated_security_fixes: true
   enable_vulnerability_alerts: true
 
-# Labels: define labels for Issues and Pull Requests
 labels:
   - name: bug
     color: CC0000
-    description: An issue with the system 🐛.
-
+    description: An issue
   - name: feature
-    # If including a `#`, make sure to wrap it with quotes!
     color: '#336699'
-    description: New functionality.
+    description: An new fonctionality
 
-  - name: Help Wanted
-    # Provide a new name to rename an existing label
-    new_name: first-timers-only
-
-# Milestones: define milestones for Issues and Pull Requests
 milestones:
   - title: milestone-title
     description: milestone-description
@@ -42,12 +34,6 @@ collaborators:
 
 teams:
   - name: core
-    # The permission to grant the team. Can be one of:
-    # * `pull` - can pull, but not push to or administer this repository.
-    # * `push` - can pull and push, but not administer this repository.
-    # * `admin` - can pull, push and administer this repository.
-    # * `maintain` - Recommended for project managers who need to manage the repository without access to sensitive or destructive actions.
-    # * `triage` - Recommended for contributors who need to proactively manage issues and pull requests without write access.
     permission: admin
   - name: docs
     permission: push
