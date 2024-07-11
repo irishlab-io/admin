@@ -1,8 +1,7 @@
 ---
 fail_fast: false
 ci:
-  skip:
-    - ggshield
+  skip: [ggshield]
   autoupdate_schedule: monthly
 repos:
   - repo: https://github.com/gitguardian/ggshield
