@@ -1,3 +1,4 @@
+---
 # This settings file can be used to create org-level settings
 
 # This is the settings that need to be applied to all repositories in the org
@@ -217,7 +218,7 @@ autolinks:
 
 # Repository name validation
 validator:
-  #pattern: '[a-zA-Z0-9_-]+_[a-zA-Z0-9_-]+.*'
+  # pattern: '[a-zA-Z0-9_-]+_[a-zA-Z0-9_-]+.*'
   pattern: "[a-zA-Z0-9_-]+"
 
 # Rulesets
