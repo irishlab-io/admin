@@ -1,7 +1,9 @@
 ---
 fail_fast: false
 ci:
-  skip: [ggshield]
+  skip:
+    - actionlint
+    - ggshield
   autoupdate_schedule: monthly
 repos:
   - repo: https://github.com/gitguardian/ggshield
@@ -11,7 +13,7 @@ repos:
         language_version: python3
         stages: [commit]
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
+    rev: v4.6.0
     hooks:
       # Git style
       - id: check-added-large-files
@@ -24,7 +26,6 @@ repos:
         args: [--markdown-linebreak-ext=md]
       - id: check-yaml
         files: .*\.(yaml|yml)$
-      - id: check-merge-conflict
       - id: check-executables-have-shebangs
       # Cross platform
       - id: check-case-conflict
@@ -47,7 +48,7 @@ repos:
       - id: yamllint
         args:
           - -c
-          - .config/.yamllint.yml
+          - .config/.yaml-lint.yml
   - repo: https://github.com/rhysd/actionlint
     rev: v1.7.1
     hooks:
