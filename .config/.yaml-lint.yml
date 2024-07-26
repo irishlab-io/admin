@@ -19,4 +19,4 @@ rules:
 yaml-files:
   - "*.yaml"
   - "*.yml"
-  - .yamllint
+  - .yaml-lint
