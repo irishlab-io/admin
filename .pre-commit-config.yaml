@@ -6,6 +6,10 @@ ci:
     - ggshield
   autoupdate_schedule: monthly
 repos:
+  - repo: meta
+    hooks:
+      # - id: check-hooks-apply
+      - id: check-useless-excludes
   - repo: https://github.com/gitguardian/ggshield
     rev: v1.29.0
     hooks:
@@ -42,6 +46,10 @@ repos:
       - id: alphabetize-codeowners
       - id: fix-smartquotes
       - id: fix-ligatures
+  - repo: https://github.com/jorisroovers/gitlint
+    rev: v0.19.1
+    hooks:
+      - id: gitlint
   - repo: https://github.com/adrienverge/yamllint
     rev: v1.35.1
     hooks:
