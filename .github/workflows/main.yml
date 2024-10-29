@@ -16,7 +16,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  secret:
-    name: Call GG Shield
-    uses: irishlab-io/pipelines/.github/workflows/reusable-ggshield.yml@main
-    secrets: inherit
+  hello-world:
+    name: Call Hello World
+    uses: irishlab-io/pipelines/.github/workflows/reusable-hello-world.yml@main 
