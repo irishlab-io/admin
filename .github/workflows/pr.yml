@@ -23,5 +23,4 @@ jobs:
   secret:
     name: Call Secret Scanning
     uses: irishlab-io/admin/.github/workflows/reusable-ggshield.yml@main
-    secrets:
-      api_key: ${{ secrets.GITGUARDIAN_API_KEY }}
+    secrets: inherit

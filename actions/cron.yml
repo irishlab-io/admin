@@ -3,7 +3,7 @@ name: Continous Integration - Main
 
 on: # yamllint disable-line rule:truthy
   schedule:
-    - cron: 'R R,8-16 * * *'
+    - cron: 'R R,8-16 * * *' # set random cron
 
 concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
