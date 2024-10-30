@@ -18,4 +18,4 @@ concurrency:
 jobs:
   hello-world:
     name: Call Hello World
-    uses: irishlab-io/settings/action/hello.yml@main
+    uses: irishlab-io/settings/.github/actions/hello/action.yml@main
