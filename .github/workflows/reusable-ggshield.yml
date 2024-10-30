@@ -4,9 +4,13 @@ name: Reusable - Run GitGuardian scan
 on: # yamllint disable-line rule:truthy
   workflow_dispatch:
   workflow_call:
+    secrets:
+      GITGUARDIAN_API_KEY:
+        description: Git Guardian API Key
+        required: true
 
 jobs:
-  scanning:
+  secret:
     name: GitGuardian scan
     runs-on: ubuntu-24.04
     timeout-minutes: 5
