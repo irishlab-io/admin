@@ -19,3 +19,6 @@ jobs:
   hello-world:
     name: Call Hello World
     uses: irishlab-io/admin/.github/workflows/reusable-hello-world.yml@main
+    # with:
+    #   comments: false
+    #   enable: true
