@@ -13,7 +13,14 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+
+  secret:
+    name: Call Secret Scanning
+    uses: irishlab-io/admin/.github/workflows/reusable-ggshield.yml@main
+    secrets: inherit
+
   hello-world:
+    needs: secret
     name: Call Hello World
     uses: irishlab-io/admin/.github/workflows/reusable-hello-world.yml@main
     with:
