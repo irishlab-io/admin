@@ -19,3 +19,6 @@ jobs:
   hello-world:
     name: Call Hello World
     uses: irishlab-io/pipelines/.github/workflows/reusable-hello-world.yml@main
+    with:
+      comments: "4321tset"
+      enable: false
