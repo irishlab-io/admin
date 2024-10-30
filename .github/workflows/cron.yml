@@ -10,6 +10,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+
   hello-world:
     name: Call Hello World
     uses: irishlab-io/pipelines/.github/workflows/reusable-hello-world.yml@main
