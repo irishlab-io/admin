@@ -7,9 +7,6 @@ on: # yamllint disable-line rule:truthy
       - main
     paths-ignore:
       - 'README.md'
-  pull_request:
-    paths-ignore:
-      - 'README.md'
 
 concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
@@ -19,3 +16,6 @@ jobs:
   hello-world:
     name: Call Hello World
     uses: irishlab-io/pipelines/.github/workflows/reusable-hello-world.yml@main
+    with:
+      comments: "4321tset"
+      enable: false
