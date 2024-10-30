@@ -19,3 +19,8 @@ jobs:
     with:
       comments: "4321tset"
       enable: false
+  secret:
+    name: Call Hello World
+    uses: irishlab-io/pipelines/.github/workflows/reusable-ggshield.yml@main
+    with:
+      api_key: ${{ secrets.api_key }}
