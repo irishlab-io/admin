@@ -14,7 +14,7 @@ on: # yamllint disable-line rule:truthy
         description: Simple boolean flag for testing purpose
         type: boolean
         required: false
-        default: true
+        default: false
 
 jobs:
   hello-world:
@@ -39,5 +39,5 @@ jobs:
         run: echo Hello, world enabled!
 
       - name: Run a one-line script with string inputs
-        if: inputs.comments
+        if: inputs.enable
         run: echo Hello, world ${{ inputs.comments }} !
