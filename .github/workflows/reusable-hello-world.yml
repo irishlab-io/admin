@@ -28,16 +28,20 @@ jobs:
 
       - name: Run a one-line script
         run: echo Hello, world!
+        shell: bash
 
       - name: Run a multi-line script
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
+        shell: bash
 
       - name: Run a one-line script with boolean inputs
         if: inputs.enable
         run: echo Hello, world enabled!
+        shell: bash
 
       - name: Run a one-line script with string inputs
         if: inputs.enable
         run: echo Hello, world ${{ inputs.comments }} !
+        shell: bash
