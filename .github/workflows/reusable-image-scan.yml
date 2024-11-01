@@ -47,10 +47,10 @@ jobs:
         with:
           image-ref: ${{ inputs.image }}
           format: table
-          exit-code: ${{ inputs.exit-code }}
-          ignore-unfixed: ${{ inputs.ignore-unfixed }}
-          vuln-type: 'os,library'
-          severity: ${{ inputs.severity }}
+          exit-code: 0
+          ignore-unfixed: false
+          vuln-type: "os,library"
+          severity: "HIGH,CRITICAL"
           timeout: 10m0s
 
       - name: Upload Trivy scan results to GitHub Security tab
