@@ -30,7 +30,7 @@ on: # yamllint disable-line rule:truthy
 
 jobs:
   build:
-    name: CVE Image Scan
+    name: Trivy - Image Scan
 
     runs-on: ubuntu-latest
 
