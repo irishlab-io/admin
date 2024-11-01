@@ -1,34 +1,32 @@
 ---
-name: Trivy Scan Image
+name: Reusable - Trivy Image Scan
 
 on: # yamllint disable-line rule:truthy
   workflow_call:
     inputs:
       image:
-        # 'ghcr.io/${{ github.repository }}:${{ github.sha }}'
         description: Image to scan
         required: true
         type: string
+        # default: |
+        #   ghcr.io/${{ github.repository }}:${{ github.sha }}
       exit-code:
         description: 1 if you want job to fail when CVEs are found
         required: false
         type: string
-        default: '0'
+        default: |
+          0
       severity:
         description: Comma delimited list of severities to scan for UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL
         required: false
         type: string
-        default: 'HIGH,CRITICAL'
+        default: |
+          HIGH,CRITICAL
       ignore-unfixed:
         description: Ignore unpatched/unfixed vulnerabilities
         required: false
         type: boolean
         default: true
-      upload-results:
-        description: Upload scan results to GitHub Security tab
-        required: false
-        type: boolean
-        default: false
 
     secrets:
       registry-username:
@@ -56,11 +54,11 @@ jobs:
         uses: aquasecurity/trivy-action@0.28.0
         with:
           image-ref: ${{ inputs.image }}
-          format: table # table, json, sarif
-          exit-code: ${{ inputs.exit-code }} # 1 or 0. 0 means don't fail the job if issues are found
-          ignore-unfixed: ${{ inputs.ignore-unfixed }} # Ignore unpatched/unfixed vulnerabilities
+          format: table
+          exit-code: ${{ inputs.exit-code }}
+          ignore-unfixed: ${{ inputs.ignore-unfixed }}
           vuln-type: 'os,library'
-          severity: ${{ inputs.severity }} # UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL
+          severity: ${{ inputs.severity }}
           timeout: 10m0s
         env:
           TRIVY_USERNAME: ${{ secrets.registry-username }}
@@ -68,6 +66,5 @@ jobs:
 
       - name: Upload Trivy scan results to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v3
-        if: always() && inputs.upload-results
         with:
           sarif_file: "trivy-results.sarif"
