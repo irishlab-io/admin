@@ -1,9 +1,10 @@
 ---
-name: Continous Integration - Main
+name: Continous Integration - Cron
 
 on: # yamllint disable-line rule:truthy
   schedule:
     - cron: '32 6 * * *' # set random cron
+  workflow_dispatch:
 
 concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
@@ -19,7 +20,7 @@ jobs:
   hello-world:
     needs: secret
     name: Call Hello World
-    uses: irishlab-io/pipelines/.github/workflows/reusable-hello-world.yml@main
+    uses: irishlab-io/admin/.github/workflows/reusable-hello-world.yml@main
     with:
       comments: "4321tset"
       enable: false
