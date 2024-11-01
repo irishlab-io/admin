@@ -28,17 +28,9 @@ on: # yamllint disable-line rule:truthy
         type: boolean
         default: true
 
-    secrets:
-      registry-username:
-        description: Username for registry
-        required: true
-      registry-password:
-        description: Password for registry
-        required: true
-
 jobs:
   build:
-    name: CVE Image Scan
+    name: Trivy - Image Scan
 
     runs-on: ubuntu-latest
 
@@ -60,9 +52,6 @@ jobs:
           vuln-type: 'os,library'
           severity: ${{ inputs.severity }}
           timeout: 10m0s
-        env:
-          TRIVY_USERNAME: ${{ secrets.registry-username }}
-          TRIVY_PASSWORD: ${{ secrets.registry-password }}
 
       - name: Upload Trivy scan results to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v3
