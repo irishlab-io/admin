@@ -5,17 +5,17 @@ on: # yamllint disable-line rule:truthy
   workflow_call:
     inputs:
       working_directory:
-        description: Simple string for testing purpose
+        description: Project working directory
         type: string
         required: false
         default: "3.12"
       python_version:
-        description: Simple string for testing purpose
+        description: Python version to use
         type: string
         required: false
         default: "3.12"
       poetry_version:
-        description: Simple string for testing purpose
+        description: Python version to use
         type: string
         required: false
         default: "latest"

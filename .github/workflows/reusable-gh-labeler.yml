@@ -2,20 +2,19 @@
 name: Reusable - GH Labeler
 
 on: # yamllint disable-line rule:truthy
-  workflow_dispatch:
   workflow_call:
-
-concurrency:
-  group: ${{ github.ref }}-${{ github.workflow }}
-  cancel-in-progress: true
+    inputs:
+      configuration_file:
+        description: GH Labeler configuration
+        required: false
+        default: ".github/labeler.yml"
+        type: string
+  workflow_dispatch:
 
 jobs:
   labeler:
-    name: Labeler
+    name: Run GH labler
     runs-on: ubuntu-24.04
-    permissions:
-      contents: read
-      pull-requests: write
     timeout-minutes: 5
 
     steps:
@@ -23,4 +22,4 @@ jobs:
       - name: Labeler
         uses: actions/labeler@v5.0.0
         with:
-          configuration-path: .github/labeler.yml
+          configuration-path: ${{ inputs.configuration_file }}
