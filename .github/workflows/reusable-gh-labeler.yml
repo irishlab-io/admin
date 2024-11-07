@@ -1,5 +1,5 @@
 ---
-name: Meta - Labeler
+name: Reusable - GH Labeler
 
 on: # yamllint disable-line rule:truthy
   workflow_dispatch:
