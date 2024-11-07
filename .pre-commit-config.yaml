@@ -36,7 +36,7 @@ repos:
       - id: forbid-new-submodules
       - id: forbid-submodules
       - id: no-commit-to-branch
-        args: ['--branch', '(main|master)', '--pattern', '^(?!(dev|((feat|hotfix|renovate)\/[a-zA-Z0-9\-]+)$)).*']
+        args: ['--branch', '(main)', '--pattern', '^(?!(dev|((feat|fix|rel|renovate)\/[a-zA-Z0-9\-]+)$)).*']
       - id: mixed-line-ending
         args:
           - --fix=lf
