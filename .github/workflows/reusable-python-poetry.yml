@@ -4,32 +4,37 @@ name: Reusable - Python Poetry
 on: # yamllint disable-line rule:truthy
   workflow_call:
     inputs:
-      python-version:
+      working_directory:
         description: Simple string for testing purpose
         type: string
         required: false
         default: "3.12"
-      poetry-version:
+      python_version:
+        description: Simple string for testing purpose
+        type: string
+        required: false
+        default: "3.12"
+      poetry_version:
         description: Simple string for testing purpose
         type: string
         required: false
         default: "latest"
-      poetry-installer:
+      poetry_installer:
         description: Simple boolean flag for testing purpose
         type: boolean
         required: false
         default: true
-      poetry-create:
+      poetry_create:
         description: Simple boolean flag for testing purpose
         type: boolean
         required: false
         default: true
-      poetry-in-project:
+      poetry_inproject:
         description: Simple boolean flag for testing purpose
         type: boolean
         required: false
         default: true
-      poetry-path:
+      poetry_path:
         description: Simple boolean flag for testing purpose
         type: string
         required: false
@@ -44,6 +49,7 @@ jobs:
     defaults:
       run:
         shell: bash
+        working-directory: ${{ inputs.working_directory }}
 
     strategy:
       max-parallel: 16
@@ -57,20 +63,20 @@ jobs:
         id: setup-python
         uses: actions/setup-python@v5.3.0
         with:
-          python-version: ${{ inputs.python-version }}
+          python-version: ${{ inputs.python_version }}
 
       - name: Install and configure Poetry
         uses: snok/install-poetry@v1
         with:
-          version: ${{ inputs.poetry-version }}
-          installer-parallel: ${{ inputs.poetry-installer }}
-          virtualenvs-create: ${{ inputs.poetry-create }}
-          virtualenvs-in-project: ${{ inputs.poetry-in-project }}
-          virtualenvs-path: ${{ inputs.poetry-path }}
+          version: ${{ inputs.poetry_version }}
+          installer-parallel: ${{ inputs.poetry_installer }}
+          virtualenvs-create: ${{ inputs.poetry_create }}
+          virtualenvs-in-project: ${{ inputs.poetry_inproject }}
+          virtualenvs-path: ${{ inputs.working_directory }}
 
       - name: Load cached venv
         id: cached-poetry
-        uses: actions/cache@v4
+        uses: actions/cache@v4.1.2
         with:
           path: .venv
           key: venv-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
