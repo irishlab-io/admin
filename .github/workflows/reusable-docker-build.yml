@@ -122,7 +122,7 @@ jobs:
 
       - name: Docker Build and Push
         id: build_image
-        uses: docker/build-push-action@v6.9.0
+        uses: docker/build-push-action@v6.10.0
         with:
           platforms: ${{ inputs.platforms }}
           context: ${{ inputs.context }}
